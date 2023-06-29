@@ -1,15 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-3">
-    <h1>Welcome Page</h1>
-    <div class="row g-4">
-        <div class="col">
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, delectus ad esse illum omnis earum eligendi sint a minus quasi, inventore nulla autem. Maxime voluptatem eligendi veniam voluptates. Soluta, sunt!</p>
-            </div>
-        </div>
-    </div>
 
+
+
+<div class="mainContainer">
+    <div class="container-lg d-flex flex-wrap ">
+        @foreach ($trains as $train)
+            <div class="movieCard mt-3 p-3  border border-white w-50">
+                <h3 class="pb-2"> Azienda: {{ $train->azienda }}</h3>
+                <p>Tratta: {{ $train->stazione_partenza }} - {{ $train->stazione_arrivo }} </p>
+                <p>Orario Partenza: {{ $train->orario_partenza }} Arrivo: {{ $train->orario_arrivo }}</p>
+                <p>Codice treno: {{ $train->codice_treno }}</p>
+                <p>NUmero Carrozze: {{ $train->numero_carrozze }}</p>
+                
+            </div>
+        @endforeach
+    </div>
 </div>
+
 @endsection
